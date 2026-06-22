@@ -25,13 +25,6 @@ const renderTable = (dataArray) => {
     });
 }
 
-// Display without populated database
-renderTable(localStudents);
-
-// Display the initial populated database
-localStudents = getStudentsAPI();
-renderTable(localStudents);
-
 studentForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
@@ -63,3 +56,12 @@ studentForm.addEventListener('submit', (event) => {
     studentForm.reset();
 });
 
+const initApp = () => {
+    localStudents = getStudentsAPI();
+    renderTable(localStudents);
+};
+
+// Display without populated database
+renderTable(localStudents);
+// Display the initial populated database
+initApp();
